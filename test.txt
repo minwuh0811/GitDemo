@@ -1,2 +1,3 @@
 En första rad
 Och en andra rad
+Some changes done in master
