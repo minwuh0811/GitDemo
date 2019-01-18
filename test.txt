@@ -1,9 +1,4 @@
 changed
 changed
 changed
-<<<<<<< HEAD
-somechanges from master
-=======
-somechanges from tester
->>>>>>> test
-
+somechanges from test
