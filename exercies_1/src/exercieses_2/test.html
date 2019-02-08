@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aboute</title>
+    <!--<style>-->
+
+        <!--*{padding:0;-->
+        <!--margin:0;-->
+        <!--}-->
+        <!--p{-->
+            <!--background-color: aqua;-->
+            <!--font-style: oblique;-->
+            <!--margin:0;-->
+            <!--padding:10px;-->
+            <!--border-style: solid;-->
+            <!--border-color: red;-->
+            <!--border-width: 2px;-->
+            <!--/*margin-left:10px; */-->
+            <!--margin:2px 10px 2px 10px;-->
+
+        <!--}-->
+        <!--h1 {-->
+            <!--color:darkgray;-->
+            <!--font-size:2.5em;-->
+        <!--}-->
+    <!--</style>-->
+    <!--//internal css-->
+    <link rel="stylesheet" href="style.css"/>
+    <script>
+        function mouseMoved(e){
+            var x=e.clientX;
+            var y=e.clientY;
+            document.getElementById("rubrik").innerHTML="Mouse coords:" + x +"," +y ;
+        }
+        function changeText(){
+            document.getElementById("rubrik").innerHTML="Button clicked";
+        }
+        function changeImg(){
+            document.getElementById('img1').src='./Min Wu.png';
+            document.getElementById("rubrik").style='color:red';
+            var listItem=document.createElement('li');
+            var text=document.createTextNode('some new text for the li element');
+            listItem.appendChild(text);
+            document.getElementById("list").appendChild(listItem);
+        }
+        function dynamicCode(){
+            // var text=alert("shows alert dialog");
+            // var text=document.getElementById("codeToRun").value;
+            location.reload();
+            // eval(text);
+        }
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("ajaxDestination").innerHTML = this.responseText;
+                }
+            };
+                xhttp.open("Get", "ajax_info.txt",true);
+                xhttp.send();
+        }
+        var interval= window.setInterval(loadDoc,5000);
+    </script>
+    <!--//external Css-->
+</head>
+<body>
+<img id='img1' src="./bart.png" alt="Portrait of Bart" onmousemove="mouseMoved(event)"/>
+<!--<button onclick="document.getElementById('rubrik').innerHTML='Button clicked'">Click Me!</button>-->
+<button onclick="changeImg()">Click Me!</button>
+<button onclick="dynamicCode()">Run dynamic Code!</button>
+<input id="codeToRun" type="text"/>
+<button onclick="loadDoc()">AJAX!</button>
+
+<div id="info"/>
+    <!--<h1 style="color:blue;font-size:2.5em"> Personal information</h1>-->
+    <!--//inline CSS-->
+    <h1 id="rubrik"> Personal information</h1>
+    <p><b>Name:</b> Bart</p>
+    <p style="border-color: green;"><i>Age:</i> 10</p>
+    <h2>Interests</h2>
+    <ul id="list" class="food">
+        <li>Playing drums</li>
+        <li>Upsetting dad</li>
+        <li>Hanging out in the tree house</li>
+    </ul>
+    <!--<h2>Favorite food</h2>-->
+    <!--<ul class="food">-->
+        <!--<li>Milk</li>-->
+        <!--<li>Hambergers</li>-->
+    <!--</ul>-->
+</div>
+<a href="mailto:bart@simpson.com? subject=Testing out mailto!"> send a prank mail to Bart.</a>
+<div id="ajaxDestination"></div>
+</body>
+</html>
